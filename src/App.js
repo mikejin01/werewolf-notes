@@ -138,12 +138,12 @@ function App() {
       <br></br>
       {  newRecordType == "1" ? "hi" : null }
       <div id="recordMultiPlayersDiv" hidden="true"><span >参与玩家（空格分开）</span>
-      <input ref={recordMultiPlayersRef} type="string" style={{ width: '50px'}}></input></div>
+      <input ref={recordMultiPlayersRef} type="string"  style={{ width: '50px'}}></input></div>
       <span id="recordInitPlayerDiv" hidden="true" >玩家 
-      <input  ref={recordInitPlayerRef} type="number" style={{ width: '30px'}} ></input></span>
+      <input  ref={recordInitPlayerRef} type="number" inputProps={{ inputMode: 'numeric' }} style={{ width: '30px'}} ></input></span>
       <span id="newRecordTypeSpan" hidden="true" ></span>
       <span id="recordAffectedPlayerDiv" hidden="true" >玩家 
-      <input  ref={recordAffectedPlayerRef} type="number" style={{ width: '30px'}} ></input></span>
+      <input  ref={recordAffectedPlayerRef} type="number" inputProps={{ inputMode: 'numeric' }} style={{ width: '30px'}} ></input></span>
        
       
       <button onClick={handleRecord}>记录</button>
