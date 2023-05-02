@@ -116,15 +116,13 @@ function App() {
 
     }
 
-}
-
     console.log(updatedPlayers)
     setPlayers(updatedPlayers)
     //setPlayers([])
   }
   var tableStyle = {
-    "border": "1px solid black"
- };
+      "border": "1px solid black"
+  };
   return (
     <div style={{justifyContent:'center', alignItems:'center'}}>
       <h4>jp狼人杀笔记 v1.0</h4>
