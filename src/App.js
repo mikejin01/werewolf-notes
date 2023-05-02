@@ -39,7 +39,8 @@ function App() {
       console.log(players)
     } 
     document.getElementById('setting').hidden = true
-    document.getElementById('myNumber').innerHTML = myNumber
+    document.getElementById('myNumberSpan').innerHTML = myNumber
+    document.getElementById('playersCountSpan').innerHTML = playersCount
     document.getElementById('roundSpan').innerHTML = round
     document.getElementById('status').hidden = false
     /**/
@@ -122,7 +123,7 @@ function App() {
         <button onClick={handleReset}>开始</button>
       </div>
       <div id="status" hidden="true">
-        我的号码: <span id="myNumber" ></span>
+        我的号码: <span id="myNumberSpan" ></span>本局玩家人数:<span id="playersCountSpan" ></span>
         轮次: <span id="roundSpan" ></span> <button onClick={handleNextRound}>下一轮</button>
       </div>
       
