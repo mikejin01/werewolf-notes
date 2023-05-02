@@ -115,7 +115,7 @@ function App() {
       <h3>by m.j. ig:ezzekmusic</h3>
       <div id="setting">
         <span>我的号码</span>
-        <input ref={myNumberRef} type="number" inputProps={{ inputMode: 'numeric' }} style={{ width: '30px'}} ></input>
+        <input ref={myNumberRef} type="number" pattern="\d*" inputProps={{ inputMode: 'numeric' }} style={{ width: '30px'}} ></input>
         <span>本局玩家人数</span>
         <input ref={playersCountRef} type="number" inputProps={{ inputMode: 'numeric' }} style={{ width: '30px'}} ></input>
         <br></br>
