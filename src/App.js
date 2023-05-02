@@ -77,6 +77,10 @@ function App() {
     round=round+1
     document.getElementById('roundSpan').innerHTML = round
   }
+
+  function handleRestart(e) {
+    window.location.reload();
+  }
   function handleRecord(e) {
     console.log("first")
     //newRecordType = newRecordTypeRef.current.value
@@ -126,6 +130,7 @@ function App() {
       <div id="status" hidden="true">
         我的号码: <span id="myNumberSpan" ></span>本局玩家人数:<span id="playersCountSpan" ></span>
         轮次: <span id="roundSpan" ></span> <button onClick={handleNextRound}>下一轮</button>
+        <button onClick={handleRestart}>重开</button>
       </div>
       
       <br></br>
