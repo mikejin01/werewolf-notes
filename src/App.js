@@ -14,6 +14,8 @@ function App() {
   var updatedPlayers = []
   var playersCount = 0
 
+
+
   
   function handleReset(e) {
     const myNumber = myNumberRef.current.value
@@ -112,8 +114,8 @@ function App() {
       <h2>jp狼人杀笔记 v1.0</h2>
       <h3>by m.j. ig:ezzekmusic</h3>
       <div id="setting">
-        <span>我的号码</span><input ref={myNumberRef} type="number"></input>
-        <span>本局玩家人数</span><input ref={playersCountRef} type="number"></input>
+        <span>我的号码</span><input ref={myNumberRef} type="number" style={{ width: '30px'}} ></input>
+        <span>本局玩家人数</span><input ref={playersCountRef} type="number" style={{ width: '30px'}} ></input>
         <br></br>
         <button onClick={handleReset}>开始</button>
       </div>
@@ -135,10 +137,13 @@ function App() {
       </select>
       <br></br>
       {  newRecordType == "1" ? "hi" : null }
-      <div id="recordMultiPlayersDiv" hidden="true"><span >参与玩家（空格分开）</span><input ref={recordMultiPlayersRef} type="string"></input></div>
-      <span id="recordInitPlayerDiv" hidden="true" >玩家 <input  ref={recordInitPlayerRef} type="number"></input></span>
-      <span id="newRecordTypeSpan" hidden="true"></span>
-      <span id="recordAffectedPlayerDiv" hidden="true">玩家 <input  ref={recordAffectedPlayerRef} type="number"></input></span>
+      <div id="recordMultiPlayersDiv" hidden="true"><span >参与玩家（空格分开）</span>
+      <input ref={recordMultiPlayersRef} type="string" style={{ width: '50px'}}></input></div>
+      <span id="recordInitPlayerDiv" hidden="true" >玩家 
+      <input  ref={recordInitPlayerRef} type="number" style={{ width: '30px'}} ></input></span>
+      <span id="newRecordTypeSpan" hidden="true" ></span>
+      <span id="recordAffectedPlayerDiv" hidden="true" >玩家 
+      <input  ref={recordAffectedPlayerRef} type="number" style={{ width: '30px'}} ></input></span>
        
       
       <button onClick={handleRecord}>记录</button>
