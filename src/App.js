@@ -122,6 +122,7 @@ function App() {
       <div id="setting">
         <span>我的号码</span>
         <input ref={myNumberRef} type="number" pattern="\d*" style={{ width: '30px'}} ></input>
+        <br></br>
         <span>本局玩家人数</span>
         <input ref={playersCountRef} type="number" pattern="\d*" style={{ width: '30px'}} ></input>
         <br></br>
