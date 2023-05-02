@@ -164,6 +164,7 @@ function App() {
       <br></br>
       {  newRecordType == "1" ? "hi" : null }
       <div id="recordMultiPlayersDiv" hidden="true"><span >参与玩家（空格分开）</span>
+      <br></br>
       <input ref={recordMultiPlayersRef} type="string"  style={{ width: '50px'}}></input></div>
       <span id="recordInitPlayerDiv" hidden="true" >玩家 
       <input  ref={recordInitPlayerRef} type="number" pattern="\d*" style={{ width: '30px'}} ></input></span>
