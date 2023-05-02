@@ -14,7 +14,7 @@ export default function Player( {player} ) {
     <>
     <tr>
         <td style={tdStyle}> {player.id}号 </td>
-        <td style={tdStyle}>好人分数：{player.score}</td>
+        <td style={tdStyle}>信誉：{player.score}</td>
         <td style={tdStyle}>状态：{player.status}</td>
     </tr>
     <tr>
