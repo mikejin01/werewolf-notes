@@ -13,6 +13,7 @@ function App() {
   var round = 1
   var updatedPlayers = []
   var playersCount = 0
+
   
   function handleReset(e) {
     const myNumber = myNumberRef.current.value
@@ -36,8 +37,8 @@ function App() {
       console.log(players)
     } 
     document.getElementById('setting').hidden = true
-    document.getElementById('myNumber').innerHTML = "我的号码: "+myNumber
-    document.getElementById('round').innerHTML = " 轮次: "+round
+    document.getElementById('myNumber').innerHTML = myNumber
+    document.getElementById('roundSpan').innerHTML = round
     document.getElementById('status').hidden = false
     /**/
   }
@@ -68,7 +69,10 @@ function App() {
       recordAffectedPlayerDiv.hidden = false
     }
   }
-
+  function handleNextRound(e) {
+    round=round+1
+    document.getElementById('roundSpan').innerHTML = round
+  }
   function handleRecord(e) {
     console.log("first")
     //newRecordType = newRecordTypeRef.current.value
@@ -88,19 +92,14 @@ function App() {
       //recordAffectedPlayerDiv.hidden = false
     }  
     else if (submittedRecordType == "被击杀") {
-      console.log("被击杀!")
+      console.log("被击杀! at round "+document.getElementById('roundSpan').innerHTML)
       updatedPlayers[recordAffectedPlayer].status = "被击杀"
-      updatedPlayers[recordAffectedPlayer].records.push({recordType: "被击杀", round: round})
+      updatedPlayers[recordAffectedPlayer].records.push({recordType: "被击杀", round: document.getElementById('roundSpan').innerHTML})
     } else {
       //recordInitPlayerDiv.hidden = false
       //recordAffectedPlayerDiv.hidden = false
     }
 
-    /*for (let i = 1; i <= playersCount; i++) {
-      console.log("i = "+i)
-      updatedPlayers[].push({id: i, records: []})
-      
-    }*/
     console.log(updatedPlayers)
     setPlayers(updatedPlayers)
     //setPlayers([])
@@ -119,8 +118,8 @@ function App() {
         <button onClick={handleReset}>开始</button>
       </div>
       <div id="status" hidden="true">
-        <span id="myNumber" >我的号码:</span>
-        <span id="round" >轮次:</span>
+        我的号码: <span id="myNumber" ></span>
+        轮次: <span id="roundSpan" ></span> <button onClick={handleNextRound}>下一轮</button>
       </div>
       
       <br></br>
