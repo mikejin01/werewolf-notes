@@ -114,8 +114,10 @@ function App() {
       <h2>jp狼人杀笔记 v1.0</h2>
       <h3>by m.j. ig:ezzekmusic</h3>
       <div id="setting">
-        <span>我的号码</span><input ref={myNumberRef} type="number" style={{ width: '30px'}} ></input>
-        <span>本局玩家人数</span><input ref={playersCountRef} type="number" style={{ width: '30px'}} ></input>
+        <span>我的号码</span>
+        <input ref={myNumberRef} type="number" inputProps={{ inputMode: 'numeric' }} style={{ width: '30px'}} ></input>
+        <span>本局玩家人数</span>
+        <input ref={playersCountRef} type="number" inputProps={{ inputMode: 'numeric' }} style={{ width: '30px'}} ></input>
         <br></br>
         <button onClick={handleReset}>开始</button>
       </div>
