@@ -86,7 +86,7 @@ function App() {
     round = document.getElementById('roundSpan').innerHTML
     //newRecordType = newRecordTypeRef.current.value
     const submittedRecordType = newRecordTypeRef.current.value
-    const recordMultiPlayers = recordMultiPlayersRef.current.value
+    const recordMultiPlayers = recordMultiPlayersRef.current.value.split(" ")
     const recordInitPlayer = parseInt(recordInitPlayerRef.current.value)
     const recordAffectedPlayer = parseInt(recordAffectedPlayerRef.current.value)
     
@@ -95,10 +95,20 @@ function App() {
     //updatedAreas[1].id = "pick"
 
     if (submittedRecordType == "上警"){
-      //recordMultiPlayersDiv.hidden = false
+      for (let i = 0; i < recordMultiPlayers.length; i++) {
+        console.log("now is: "+recordMultiPlayers[i])
+        var tempPlayer = parseInt(recordMultiPlayers[i]-1)
+        updatedPlayers[tempPlayer].records.push({recordType: "上警", round: round})
+      }
     } else if (submittedRecordType == "出局") {
-      //recordMultiPlayersDiv.hidden = false
-      //recordAffectedPlayerDiv.hidden = false
+      for (let i = 0; i < recordMultiPlayers.length; i++) {
+        console.log("now is: "+recordMultiPlayers[i])
+        var tempPlayer = parseInt(recordMultiPlayers[i]-1)
+        updatedPlayers[tempPlayer].records.push({recordType: "投死了"+recordAffectedPlayer+"号", round: round})
+        
+      }
+      updatedPlayers[recordAffectedPlayer-1].status = "被"+recordMultiPlayersRef.current.value+"号投死出局"
+      updatedPlayers[recordAffectedPlayer-1].records.push({recordType: "被出局", round: round})
     }  
     else if (submittedRecordType == "被击杀") {
       console.log("被击杀! at round "+document.getElementById('roundSpan').innerHTML)
@@ -106,10 +116,8 @@ function App() {
       updatedPlayers[recordAffectedPlayer-1].records.push({recordType: "被击杀", round: round})
     } else if (submittedRecordType == "支持"){
       updatedPlayers[recordInitPlayer-1].records.push({recordType: "支持"+recordAffectedPlayer+"号", round: round})
-      //recordInitPlayerDiv.hidden = false
-      //recordAffectedPlayerDiv.hidden = false
     }else if(submittedRecordType == "踩") {
-      updatedPlayers[recordInitPlayer].records.push({recordType: "踩"+recordAffectedPlayer+"号", round: round})
+      updatedPlayers[recordInitPlayer-1].records.push({recordType: "踩"+recordAffectedPlayer+"号", round: round})
     }else if(submittedRecordType == "踩") { 
 
     }else { 
