@@ -86,9 +86,9 @@ function App() {
     round = document.getElementById('roundSpan').innerHTML
     //newRecordType = newRecordTypeRef.current.value
     const submittedRecordType = newRecordTypeRef.current.value
-    const recordMultiPlayers = recordMultiPlayersRef.current.value-1
-    const recordInitPlayer = parseInt(recordInitPlayerRef.current.value)-1
-    const recordAffectedPlayer = parseInt(recordAffectedPlayerRef.current.value)-1
+    const recordMultiPlayers = recordMultiPlayersRef.current.value
+    const recordInitPlayer = parseInt(recordInitPlayerRef.current.value)
+    const recordAffectedPlayer = parseInt(recordAffectedPlayerRef.current.value)
     
     //updatedPlayers = players
     const updatedPlayers = [...players]
@@ -102,10 +102,10 @@ function App() {
     }  
     else if (submittedRecordType == "被击杀") {
       console.log("被击杀! at round "+document.getElementById('roundSpan').innerHTML)
-      updatedPlayers[recordAffectedPlayer].status = "被击杀"
-      updatedPlayers[recordAffectedPlayer].records.push({recordType: "被击杀", round: round})
+      updatedPlayers[recordAffectedPlayer-1].status = "被击杀"
+      updatedPlayers[recordAffectedPlayer-1].records.push({recordType: "被击杀", round: round})
     } else if (submittedRecordType == "支持"){
-      updatedPlayers[recordInitPlayer].records.push({recordType: "支持"+recordAffectedPlayer+"号", round: round})
+      updatedPlayers[recordInitPlayer-1].records.push({recordType: "支持"+recordAffectedPlayer+"号", round: round})
       //recordInitPlayerDiv.hidden = false
       //recordAffectedPlayerDiv.hidden = false
     }else if(submittedRecordType == "踩") {
