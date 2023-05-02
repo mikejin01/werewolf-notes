@@ -113,8 +113,8 @@ function App() {
  };
   return (
     <>
-      <h2>jp狼人杀笔记 v1.0</h2>
-      <h3>by m.j. <a href='https://www.instagram.com/ezzekmusic/'><img src={ig_logo} style={{ width: '20px'}} ></img>ezzekmusic</a></h3>
+      <h4>jp狼人杀笔记 v1.0</h4>
+      <h4>by m.j. <a href='https://www.instagram.com/ezzekmusic/'><img src={ig_logo} style={{ width: '20px'}} ></img>ezzekmusic</a></h4>
       <div id="setting">
         <span>我的号码</span>
         <input ref={myNumberRef} type="number" pattern="\d*" style={{ width: '30px'}} ></input>
