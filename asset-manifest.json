@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/werewolf-notes/static/js/main.454cf5da.js",
+    "main.js": "/werewolf-notes/static/js/main.dcbe6af5.js",
     "index.html": "/werewolf-notes/index.html",
-    "main.454cf5da.js.map": "/werewolf-notes/static/js/main.454cf5da.js.map"
+    "main.dcbe6af5.js.map": "/werewolf-notes/static/js/main.dcbe6af5.js.map"
   },
   "entrypoints": [
-    "static/js/main.454cf5da.js"
+    "static/js/main.dcbe6af5.js"
   ]
 }
