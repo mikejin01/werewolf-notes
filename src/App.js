@@ -10,14 +10,12 @@ function App() {
   const recordInitPlayerRef = useRef()
   const recordAffectedPlayerRef = useRef()
   const recordMultiPlayersRef = useRef()
+  const recordContentRef = useRef()
   var newRecordType = "支持"
   var round = 1
   var updatedPlayers = []
   var playersCount = 0
 
-
-
-  
   function handleReset(e) {
     const myNumber = myNumberRef.current.value
     playersCount = playersCountRef.current.value
@@ -52,11 +50,13 @@ function App() {
     let recordMultiPlayersDiv = document.getElementById('recordMultiPlayersDiv');
     let recordInitPlayerDiv = document.getElementById('recordInitPlayerDiv');
     let recordAffectedPlayerDiv = document.getElementById('recordAffectedPlayerDiv');
+    let recordContentDiv = document.getElementById('recordContentDiv');
 
     newRecordTypeSpan.hidden = false
     newRecordTypeSpan.innerHTML = newRecordTypeRef.current.value
     recordMultiPlayersDiv.hidden = true
     recordInitPlayerDiv.hidden = true
+    recordContentDiv.hidden = true
     recordAffectedPlayerDiv.hidden = true
 
     console.log(newRecordType)
@@ -68,6 +68,12 @@ function App() {
     }  
     else if (newRecordType == "被击杀") {
       recordAffectedPlayerDiv.hidden = false
+    } else if (newRecordType == "跳") {
+      recordInitPlayerDiv.hidden = false
+      recordContentDiv.hidden = false
+    }else if (newRecordType == "备注") {
+      recordInitPlayerDiv.hidden = false
+      recordContentDiv.hidden = false
     } else {
       recordInitPlayerDiv.hidden = false
       recordAffectedPlayerDiv.hidden = false
@@ -88,6 +94,7 @@ function App() {
     const submittedRecordType = newRecordTypeRef.current.value
     const recordMultiPlayers = recordMultiPlayersRef.current.value.split(" ")
     const recordInitPlayer = parseInt(recordInitPlayerRef.current.value)
+    const recordContent = recordContentRef.current.value
     const recordAffectedPlayer = parseInt(recordAffectedPlayerRef.current.value)
     
     //updatedPlayers = players
@@ -120,7 +127,11 @@ function App() {
     }else if(submittedRecordType == "踩") {
       updatedPlayers[recordInitPlayer-1].records.push({recordType: "踩"+recordAffectedPlayer+"号", round: round})
       updatedPlayers[recordAffectedPlayer-1].records.push({recordType: "被"+recordInitPlayer+"号"+"踩", round: round})
-    }else if(submittedRecordType == "踩") { 
+    }else if(submittedRecordType == "跳") { 
+      updatedPlayers[recordInitPlayer-1].records.push({recordType: "跳"+recordContent, round: round})
+
+    }else if(submittedRecordType == "备注") { 
+      updatedPlayers[recordInitPlayer-1].records.push({recordType: "备注:"+recordContent, round: round})
 
     }else { 
 
@@ -161,6 +172,7 @@ function App() {
           <option value="踩">踩</option>
           <option value="出局">出局</option>
           <option value="被击杀">被击杀</option>
+          <option value="跳">跳</option>
           <option value="备注">备注</option>
       </select>
       <br></br>
@@ -171,6 +183,8 @@ function App() {
       <span id="recordInitPlayerDiv" hidden="true" >玩家 
       <input  ref={recordInitPlayerRef} type="number" pattern="\d*" style={{ width: '30px'}} ></input></span>
       <span id="newRecordTypeSpan" hidden="true" ></span>
+      <br></br>
+      <input id="recordContentDiv" hidden="true" ref={recordContentRef} type="string" style={{ width: '100px'}} ></input>
       <span id="recordAffectedPlayerDiv" hidden="true" >玩家 
       <input  ref={recordAffectedPlayerRef} type="number" pattern="\d*" style={{ width: '30px'}} ></input></span>
        
