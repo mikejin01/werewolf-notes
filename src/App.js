@@ -116,8 +116,10 @@ function App() {
       updatedPlayers[recordAffectedPlayer-1].records.push({recordType: "被击杀", round: round})
     } else if (submittedRecordType == "支持"){
       updatedPlayers[recordInitPlayer-1].records.push({recordType: "支持"+recordAffectedPlayer+"号", round: round})
+      updatedPlayers[recordAffectedPlayer-1].records.push({recordType: "被"+recordInitPlayer+"号"+"支持", round: round})
     }else if(submittedRecordType == "踩") {
       updatedPlayers[recordInitPlayer-1].records.push({recordType: "踩"+recordAffectedPlayer+"号", round: round})
+      updatedPlayers[recordAffectedPlayer-1].records.push({recordType: "被"+recordInitPlayer+"号"+"踩", round: round})
     }else if(submittedRecordType == "踩") { 
 
     }else { 
