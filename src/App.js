@@ -116,7 +116,7 @@ function App() {
     "border": "1px solid black"
  };
   return (
-    <>
+    <div style={{ width: '300px'}}>
       <h4>jp狼人杀笔记 v1.0</h4>
       <h4>by m.j. <a href='https://www.instagram.com/ezzekmusic/'><img src={ig_logo} style={{ width: '20px'}} ></img>ezzekmusic</a></h4>
       <div id="setting">
@@ -129,10 +129,10 @@ function App() {
       </div>
       <div id="status" hidden="true">
         我的号码: <span id="myNumberSpan" ></span>本局玩家人数:<span id="playersCountSpan" ></span>
+        <br></br>
         轮次: <span id="roundSpan" ></span> <button onClick={handleNextRound}>下一轮</button>
         <button onClick={handleRestart}>重开</button>
       </div>
-      
       <br></br>
       <span>选择记录类型</span>
       <select id="framework" defaultValue="0" ref={newRecordTypeRef} onChange={handleRecordTypeChange}>
@@ -161,7 +161,7 @@ function App() {
       </table>
 
       
-    </>
+    </div>
   );
 }
 
